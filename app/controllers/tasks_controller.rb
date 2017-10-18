@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to tasks_path, notice: "The person has been created!" and return
+      redirect_to tasks_path, notice: "Created new task!" and return
     end
     render 'new'
   end
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
 
     if @task.update_attributes(task_params)
-      redirect_to tasks_path, notice: "#{task_name} has been updated" and return
+      redirect_to tasks_path, notice: "#{@task.task_name} has been updated!" and return
     end
     render 'edit'
   end
@@ -33,7 +33,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
 
-    redirect_to tasks_path, notice: "#{task_name} has been Completed" and return
+    redirect_to tasks_path, notice: "Completed #{@task.task_name}!" and return
   end
 
 
