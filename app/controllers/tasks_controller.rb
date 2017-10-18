@@ -33,7 +33,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
 
-    redirect_to tasks_path, notice "#{task_name} has been Completed" and return
+    redirect_to tasks_path, notice: "#{task_name} has been Completed" and return
   end
 
 
