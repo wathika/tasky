@@ -1,7 +1,7 @@
 production:
   clients:
     default:
-      uri: mongodb://username:password@host1:port1,host2:port2/database?replicaSet=<replicaSetName>
+      uri: mongodb://heroku_glgn6t6f:jgllsa702n3e4u9serosf7rnet@ds125255.mlab.com:25255/heroku_glgn6t6f?replicaSet=<replicaSetName>
 
       options:
 
