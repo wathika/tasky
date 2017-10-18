@@ -1,2 +1,37 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>Tasks</h1>
+<div class="well">
+  <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
+</div>
+
+<% if flash[:notice]%>
+  <div class="alert alert-success"> <%= flash[:notice] %> </div>
+<% end %>
+
+<table class="">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @tasks.size == 0 %>
+      <tr>
+        <td>No tasks found.</td>
+      </tr>
+    <% else %>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= task.task_name %></td>
+          <td><%= task.task_notes %></td>
+          <td>
+              <%= link_to "Edit", edit_task_path(task), class: "btn btn-default" %>
+          </td>
+          <td>
+              <%= button_to "Done", task, method: :delete, data: {confirm: "Nice. Completed the task: #{task.task_name}??"}, class: "btn btn-danger"  %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
